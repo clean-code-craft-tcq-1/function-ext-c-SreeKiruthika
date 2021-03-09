@@ -26,7 +26,7 @@ int main()
   assert(!BatteryStateCheck(25, 70, 0.85,unitsMeasured));
 
 /*Re initialisation of Temperature unit to celcius*/
-  unitsMeasured = {FAHRENHEIT, PERCENT , RATIO};  
+  unitsMeasured.tempUnit = FAHRENHEIT;  
   /*All param within range */
   assert(BatteryStateCheck(77, 70, 0.7,unitsMeasured));
   /*Temperature out of range */
