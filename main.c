@@ -14,7 +14,7 @@ enum LANGUAGES PrintLanguage = GERMAN;
 int main() 
 {
 
-  struct batteryParam_unit unitsMeasured = {CELSIUS, PERCENT , RATIO};	
+  struct batteryParam_unit unitsMeasured = {CELCIUS, PERCENT , RATIO};	
 	
   /*All param within range */
   assert(BatteryStateCheck(25, 70, 0.7,unitsMeasured));
@@ -26,7 +26,7 @@ int main()
   assert(!BatteryStateCheck(25, 70, 0.85,unitsMeasured));
 
 /*Re initialisation of Temperature unit to celcius*/
- struct batteryParam_unit unitsMeasured = {FAHRENHEIT, PERCENT , RATIO};  
+  unitsMeasured = {FAHRENHEIT, PERCENT , RATIO};  
   /*All param within range */
   assert(BatteryStateCheck(77, 70, 0.7,unitsMeasured));
   /*Temperature out of range */
