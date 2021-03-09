@@ -15,11 +15,11 @@
 enum TEMP_UNITS  {CELCIUS, FAHRENHEIT, KELVIN};
 enum SOC_UNITS  {PERCENT};
 enum CHGRATE_UNITS  {RATIO};
-enum LANGUAGES {ENGLISH, GERMAN};
+enum LANGUAGES {ENGLISH,GERMAN,NUMLANG};
 
 /*******Global variables declaration*******/
 
-extern enum LANGUAGE PrintLanguage;
+extern enum LANGUAGES PrintLanguage;
 
 /*****************************************/
 

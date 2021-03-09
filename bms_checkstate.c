@@ -63,28 +63,18 @@ int BatteryStateCheck(float temperature, float soc, float chargeRate, struct bat
 *****************************************************************************************/	
 void printBatteryStatus(int batteryStatus)
 {
+	int numOfLanguage = (int)NUMLANG;
+	/*Array 0- English, Array 1- German */
+	char batteryStatusOK[numOfLanguage][30] = {"Battery status is OK", "Batteriestatus ist in Ordnung"};
+	char batteryStatusNOTOK[numOfLanguage][30] = {"Battery status is NOT OK" , "Batteriestatus ist nicht in Ordnung"};
+	
 	if(batteryStatus)
 	{
-		if(PrintLanguage == GERMAN)
-		{
-			printf("\nBatteriestatus ist in Ordnung");
-		}
-		else
-		{
-			printf("\nBattery status is OK");
-		}
-		
+		printf("\n%s",batteryStatusOK[numOfLanguage]);
 	}
 	else
 	{
-		if(PrintLanguage == GERMAN)
-		{
-			printf("\nBatteriestatus ist nicht in Ordnung");
-		}
-		else
-		{
-		    printf("\nBattery status is NOT OK");
-		}
+		printf("\n%s",batteryStatusNOTOK[numOfLanguage]);
 	}
 }
 /****************************************************************************************
