@@ -9,7 +9,7 @@
 /******************************************/
 /*******Global variables declaration*******/
 
-LANGUAGE PrintLanguage = GERMAN;
+LANGUAGES PrintLanguage = GERMAN;
 
 int main() 
 {
