@@ -14,7 +14,7 @@ enum LANGUAGES PrintLanguage = GERMAN;
 int main() 
 {
 
-  struct batteryParam_unit unitsMeasured = {FAHRENHEIT, PERCENT , RATIO};	
+  struct batteryParam_unit unitsMeasured = {CELSIUS, PERCENT , RATIO};	
 	
   /*All param within range */
   assert(BatteryStateCheck(25, 70, 0.7,unitsMeasured));
@@ -24,7 +24,18 @@ int main()
   assert(!BatteryStateCheck(50, 85, 0,unitsMeasured));
   /*Charge rate out of range */
   assert(!BatteryStateCheck(25, 70, 0.85,unitsMeasured));
-  
+
+/*Re initialisation of Temperature unit to celcius*/
+ struct batteryParam_unit unitsMeasured = {FAHRENHEIT, PERCENT , RATIO};  
+  /*All param within range */
+  assert(BatteryStateCheck(77, 70, 0.7,unitsMeasured));
+  /*Temperature out of range */
+  assert(!BatteryStateCheck(114.8, 70, 0.3,unitsMeasured));
+  /*SoC out of range */
+  assert(!BatteryStateCheck(122, 85, 0,unitsMeasured));
+  /*Charge rate out of range */
+  assert(!BatteryStateCheck(50, 70, 0.85,unitsMeasured));
+
   /*This function to be called every frequently based on the monitoring frequency needed*/
   /*Not charging and battery is normal */
   printf("\n\nTC1\nThe passed values for battery charging status check are as follows \nSoC : 80 \nCharge rate:0");
