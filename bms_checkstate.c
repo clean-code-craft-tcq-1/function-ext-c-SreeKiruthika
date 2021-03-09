@@ -93,7 +93,7 @@ float convertToCelcius (float temperature, enum TEMP_UNITS unitMeasured)
 			break;
 		
 		case FAHRENHEIT:
-			retval = (temperature - 32) * (5/9);
+			retval = (temperature - (float)32) * (0.556);
 			break;
 		default:
 	        retval = temperature ;
