@@ -12,10 +12,16 @@
 #define MINCHGRATE 0
 #define MAXCHGRATE 0.8
 
-enum TEMP_UNITS  {CELCIUS, FAHRENHIET, KELVIN};
+enum TEMP_UNITS  {CELCIUS, FAHRENHEIT, KELVIN};
 enum SOC_UNITS  {PERCENT};
 enum CHGRATE_UNITS  {RATIO};
-enum LANGUAGES {ENGLISH, GERMAN}
+enum LANGUAGES {ENGLISH, GERMAN};
+
+/*******Global variables declaration*******/
+
+extern enum LANGUAGE PrintLanguage;
+
+/*****************************************/
 
 /***************Structure definitions*******************/
 /*Structure which holds the unit in which battery parameters are measured */

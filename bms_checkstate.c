@@ -38,7 +38,7 @@ int BatteryStateCheck(float temperature, float soc, float chargeRate, struct bat
 {
 	/*All check param functions must return 0 if the param check is OK*/
     int batteryStatus;
-	convTemp = convertToCelcius (temperature , unit.tempUnit);
+	float convTemp = convertToCelcius (temperature , unit.tempUnit);
 	/*All check param functions must return 0 if the param check is OK*/
 	int temp_status  = BatteryParamCheck(convTemp , MINTEMP , MAXTEMP);
 	int soc_status = BatteryParamCheck(soc , MINSOC , MAXSOC);

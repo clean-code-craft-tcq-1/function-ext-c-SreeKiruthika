@@ -5,9 +5,6 @@
 #include "bms.h"
 #endif
 
-/*******Global variables declaration*******/
-
-extern enum LANGUAGE PrintLanguage;
 
 /******************************************/
 PrintLanguage = GERMAN;
