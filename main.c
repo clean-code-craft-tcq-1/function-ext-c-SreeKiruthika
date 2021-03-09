@@ -9,7 +9,7 @@
 /******************************************/
 /*******Global variables declaration*******/
 
-LANGUAGES PrintLanguage = GERMAN;
+enum LANGUAGES PrintLanguage = GERMAN;
 
 int main() 
 {
