@@ -12,15 +12,15 @@ int BatteryParamCheck(float param_value, float min_value, float max_value)
 {
     if(param_value < min_value)
 	{
-		return 1;
+		return BELOW_MIN;
 	}
 	else if (param_value > max_value) 
 	{
-		return 2;
+		return ABOVE_MAX;
 	}
 	else
 	{
-		return 0;
+		return IN_RANGE;
 	}
 }	
 
