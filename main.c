@@ -11,6 +11,15 @@
 
 enum LANGUAGES PrintLanguage = GERMAN;
 
+if(PrintLanguage == GERMAN)
+{
+	char paramNames[3][20] = {"Temperatur", " Ladezustand", "Ladestrom"};
+}
+else
+{
+    char paramNames[3][20] = {"Temperature", "StateofCharge", "ChargeRate"};
+}
+
 int main() 
 {
 

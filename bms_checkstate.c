@@ -8,21 +8,27 @@
 			 1 - Param is less than required charge (NOT_OK)
 			 2 - Param is more than desired charge value (NOT_OK)
 *****************************************************************************************/	
-int BatteryParamCheck(float param_value, float min_value, float max_value)
+int BatteryParamCheck(float param_value, float min_value, float max_value, enum PARAM_NAME param_name)
 {
+	int retval ;
     if(param_value < min_value)
 	{
-		return BELOW_MIN;
+		retval = BELOW_MIN;
 	}
 	else if (param_value > max_value) 
 	{
-		return ABOVE_MAX;
+		retval = ABOVE_MAX;
 	}
 	else
 	{
-		return IN_RANGE;
+		retval = IN_RANGE;
 	}
+	
+	paramStatus[param_name] =  retval;
+	return retval;
 }	
+
+	
 
 /****************************************************************************************
 *Func desc : This function check if the battery state is ok. In this function all the desired battery
@@ -40,14 +46,14 @@ int BatteryStateCheck(float temperature, float soc, float chargeRate, struct bat
     int batteryStatus;
 	float convTemp = convertToCelcius (temperature , unit.tempUnit);
 	/*All check param functions must return 0 if the param check is OK*/
-	int temp_status  = BatteryParamCheck(convTemp , MINTEMP , MAXTEMP);
-	int soc_status = BatteryParamCheck(soc , MINSOC , MAXSOC);
-	int chargeRate_status  = BatteryParamCheck(chargeRate , MINCHGRATE , MAXCHGRATE);
+    int temp_status  = BatteryParamCheck(convTemp , MINTEMP , MAXTEMP, TEMP);
+	int soc_status = BatteryParamCheck(soc , MINSOC , MAXSOC , SOC);
+	int chargeRate_status  = BatteryParamCheck(chargeRate , MINCHGRATE , MAXCHGRATE, CHRGRATE);
 	
 	batteryStatus = !(temp_status || soc_status || chargeRate_status);
 	
 	printBatteryStatus(batteryStatus);
-	
+	PrintParamStatus();
     return batteryStatus;
 }
 
@@ -76,6 +82,7 @@ void printBatteryStatus(int batteryStatus)
 	{
 		printf("\n%s",batteryStatusNOTOK[PrintLanguage]);
 	}
+	
 }
 /****************************************************************************************
 *Func desc : This function converts the passed temperature value into a temperature value of Celcius unit. 
@@ -100,4 +107,35 @@ float convertToCelcius (float temperature, enum TEMP_UNITS unitMeasured)
 			break;
    }
    return retval;
+}
+
+void PrintParamStatus()
+{
+    int i = 0;
+	bool flagSet = 0;
+	for (i= 0 ; i < NUM_PARAM ; i++)
+	{
+		if (paramStatus[i]==1)
+		{
+			if (flagSet == 0)
+			{
+				printf("\n The following parameters are below threshold\n");
+			}
+		    flagSet = 1;
+	        printf("%s\n", paramNames[i]);
+		}
+	}
+	flagSet = 0;
+	for (i= 0 ; i < NUM_PARAM ; i++)
+	{
+		if (paramStatus[i]==2)
+		{
+			if (flagSet == 0)
+			{
+				printf("\n The following parameters are above threshold\n");
+			}
+			flagSet = 1;
+			printf("%s\n", paramNames[i]);
+		}
+	}
 }
