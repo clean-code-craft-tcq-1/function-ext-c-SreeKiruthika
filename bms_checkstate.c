@@ -24,7 +24,7 @@ int BatteryParamCheck(float param_value, float min_value, float max_value, enum 
 		retval = IN_RANGE;
 	}
 	
-	paramStatus[param_name] =  retval;
+	int paramStatus[param_name] =  retval;
 	return retval;
 }	
 
