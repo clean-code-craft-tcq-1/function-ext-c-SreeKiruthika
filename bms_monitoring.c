@@ -1,7 +1,8 @@
 #include "bms.h"
 /* This is the variable or switch output which turns ON to establich connection between battery and charge source*/
-extern bool chargeRelay = DISCONNECT;  
+extern int chargeRelay;  
 
+chargeRelay = DISCONNECT;
 /****************************************************************************************
 *Func desc : This function is used to check for the battery charge monitoring 
 *Param     : soc         - The current battery state of charge that was measured   -float type	

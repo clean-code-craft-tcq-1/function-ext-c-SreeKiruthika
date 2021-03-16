@@ -112,30 +112,18 @@ float convertToCelcius (float temperature, enum TEMP_UNITS unitMeasured)
 void PrintParamStatus()
 {
     int i = 0;
-	bool flagSet = 0;
-	for (i= 0 ; i < NUM_PARAM ; i++)
+	char belowThreshold[NUMLANG][25] = {"Below Threshold","Unterhalb der Schwelle"};
+	char aboveThreshold[NUMLANG][25] = {"Above Threshold","oberhalb der Schwelle"};
+	for (i= 0 ; i < NUMPARAM ; i++)
 	{
 		if (paramStatus[i]==1)
 		{
-			if (flagSet == 0)
-			{
-				printf("\n The following parameters are below threshold\n");
-			}
-		    flagSet = 1;
-	        printf("%s\n", paramNames[i]);
+			printf("%s : %s\n", paramNames[i],belowThreshold[PrintLanguage]);
 		}
-	}
-	flagSet = 0;
-	for (i= 0 ; i < NUM_PARAM ; i++)
-	{
-		if (paramStatus[i]==2)
+	    else if (paramStatus[i]==2)
 		{
-			if (flagSet == 0)
-			{
-				printf("\n The following parameters are above threshold\n");
-			}
 			flagSet = 1;
-			printf("%s\n", paramNames[i]);
+			printf("%s : %s\n", paramNames[i], aboveThreshold[PrintLanguage]);
 		}
 	}
 }
