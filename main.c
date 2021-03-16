@@ -11,14 +11,10 @@
 
 enum LANGUAGES PrintLanguage = GERMAN;
 
-#if(PrintLanguage == GERMAN)
-{
+#if (PrintLanguage == GERMAN)
 	char paramNames[NUMPARAM][20] = {"Temperatur", " Ladezustand", "Ladestrom"};
-}
 #else
-{
     char paramNames[NUMPARAM][20] = {"Temperature", "StateofCharge", "ChargeRate"};
-}
 #endif
 
 int main() 

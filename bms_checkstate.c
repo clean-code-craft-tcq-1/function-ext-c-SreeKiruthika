@@ -122,7 +122,6 @@ void PrintParamStatus()
 		}
 	    else if (paramStatus[i]==2)
 		{
-			flagSet = 1;
 			printf("%s : %s\n", paramNames[i], aboveThreshold[PrintLanguage]);
 		}
 	}
