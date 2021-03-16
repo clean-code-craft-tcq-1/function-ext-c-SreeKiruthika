@@ -1,5 +1,8 @@
 #include "bms.h"
 
+paramStatus[0] = 0 ;
+paramStatus[1] = 0 ;
+paramStatus[2] = 0 ;
 /****************************************************************************************
 *Func desc : This function check if the passed battery parameter value is within the specified range 
 *Param     : param_value - The measured battery parameter value, whole limits are to be verified - float type
