@@ -63,7 +63,7 @@ float convertToCelcius (float temperature, enum TEMP_UNITS unitMeasured);
 
 void coolingFanControl (float temperature);
 
-void PrintParamStatus(enum PARAM_NAME param_name)
+void PrintParamStatus(enum PARAM_NAME param_name);
 
 
 
