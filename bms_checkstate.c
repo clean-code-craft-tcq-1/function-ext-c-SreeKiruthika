@@ -54,37 +54,12 @@ int BatteryStateCheck(float temperature, float soc, float chargeRate, struct bat
 	batteryStatus = !(temp_status || soc_status || chargeRate_status);
 	
 	printBatteryStatus(batteryStatus);
-	PrintParamStatus();
+	PrintParamStatus(TEMP);
+	PrintParamStatus(SOC);
+	PrintParamStatus(CHRGRATE);
     return batteryStatus;
 }
 
-/****************************************************************************************
-*Func desc : This function check if the battery state is ok. In this function all the desired battery
-			 parameters are checked to validate the current battery status. 
-*Param     : temperature - The current battery temperature value that was measured -float type
-*			 soc         - The current battery state of charge that was measured   -float type	
-*            chargerate  - The charging rate that is measured - float type
-*Return    : Returns the state of battery as int, 
-			 1 - battery is ok
-			 0 - battery is not ok
-*****************************************************************************************/	
-void printBatteryStatus(int batteryStatus)
-{
-	
-	/*Array 0- English, Array 1- German */
-	char batteryStatusOK[2][50] = {"Battery status is OK", "Batteriestatus ist in Ordnung"};
-	char batteryStatusNOTOK[2][50] = {"Battery status is NOT OK" , "Batteriestatus ist nicht in Ordnung"};
-	
-	if(batteryStatus)
-	{
-		printf("\n%s",batteryStatusOK[PrintLanguage]);
-	}
-	else
-	{
-		printf("\n%s",batteryStatusNOTOK[PrintLanguage]);
-	}
-	
-}
 /****************************************************************************************
 *Func desc : This function converts the passed temperature value into a temperature value of Celcius unit. 
 *Param     : temperature - The current battery temperature value that was measured in the unit passed as second argument -float type
@@ -108,22 +83,4 @@ float convertToCelcius (float temperature, enum TEMP_UNITS unitMeasured)
 			break;
    }
    return retval;
-}
-
-void PrintParamStatus()
-{
-    int i = 0;
-	char belowThreshold[NUMLANG][25] = {"Below Threshold","Unterhalb der Schwelle"};
-	char aboveThreshold[NUMLANG][25] = {"Above Threshold","oberhalb der Schwelle"};
-	for (i= 0 ; i < NUMPARAM ; i++)
-	{
-		if (paramStatus[i]==1)
-		{
-			printf("%s : %s\n", paramNames[i],belowThreshold[PrintLanguage]);
-		}
-	    else if (paramStatus[i]==2)
-		{
-			printf("%s : %s\n", paramNames[i], aboveThreshold[PrintLanguage]);
-		}
-	}
 }
