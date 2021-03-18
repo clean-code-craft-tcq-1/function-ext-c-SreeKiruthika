@@ -56,10 +56,10 @@ void PrintParamCategoryWise(int category)
 	printf("\n Parameters %s %s", category_string[category], Threshold);
 	while(i<NUMPARAM)
 	{
-		if (paramStatus[param_name]== category)
+		if (paramStatus[i]== category)
 		{
 			count ++;
-			printf("\n%d.%s", count,paramNames[param_name]);
+			printf("\n%d.%s", count,paramNames[i]);
 		}
 	} 
 }

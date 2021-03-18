@@ -86,5 +86,5 @@ void coolingFanControl (float temperature)
 	{
 		fanSpeed = (temperature / MAXTEMP) * 100 ;
 	}
-	printf("%s : %f", fanspeed_s, fanSpeed);
+	printf("%s : %f", fanspeed_s[PrintLanguage], fanSpeed);
 }	
