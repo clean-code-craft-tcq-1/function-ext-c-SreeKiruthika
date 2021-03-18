@@ -61,5 +61,6 @@ void PrintParamCategoryWise(int category)
 			count ++;
 			printf("\n%d.%s", count,paramNames[i]);
 		}
+		i=i+1;
 	} 
 }
