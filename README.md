@@ -57,3 +57,8 @@ Shorten the Semantic distance
 - Functional to express relation between input and output
 - Object oriented to encapsulate state with actions
 - Apect oriented to capture repeating aspects
+
+## Extension 2 - Support a Language in addition to English Language
+
+## Extension 3 - Accept different units
+
