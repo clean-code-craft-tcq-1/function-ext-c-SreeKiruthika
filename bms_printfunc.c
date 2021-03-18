@@ -32,11 +32,11 @@ void printBatteryStatus(int batteryStatus)
 	
 	if(batteryStatus)
 	{
-		printf("\n%s",batteryStatusOK);
+		printf("\n\n%s",batteryStatusOK);
 	}
 	else
 	{
-		printf("\n%s",batteryStatusNOTOK);
+		printf("\n\n%s",batteryStatusNOTOK);
 		PrintParamCategoryWise(BELOW_MIN);
 		PrintParamCategoryWise(ABOVE_MAX);
 	}

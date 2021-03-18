@@ -78,7 +78,7 @@ void coolingFanControl (float temperature)
 	{
 		fanSpeed = FANSPD_MIN ;
 	}
-	else if (temperature > MAXTEMP + tempTolerance)
+	else if (temperature > MAXTEMP - tempTolerance)
 	{
 		fanSpeed = FANSPD_MAX ;
 	}
@@ -86,5 +86,5 @@ void coolingFanControl (float temperature)
 	{
 		fanSpeed = (temperature / MAXTEMP) * 100 ;
 	}
-	printf("%s : %f", fanspeed_s[PrintLanguage], fanSpeed);
+	printf("\n%s : %f", fanspeed_s[PrintLanguage], fanSpeed);
 }	
