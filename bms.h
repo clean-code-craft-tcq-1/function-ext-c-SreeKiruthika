@@ -31,7 +31,6 @@ enum PARAM_NAME {TEMP, SOC, CHRGRATE, NUMPARAM};
 /*******Global variables declaration*******/
 
 extern enum LANGUAGES PrintLanguage;
-extern char paramNames[3][20];
 extern int paramStatus[3];
 
 /*****************************************/

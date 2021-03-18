@@ -38,6 +38,7 @@ void PrintParamCategoryWise(int category)
 {
     char category_string[NUMLANG][3][10] ={{"Within","Below","Above"},{"innerhalb","Unterhalb","Oberhalb"}}; 
     char Threshold[NUMLANG][12] = {"Threshold","der Schwelle"};		
+	char paramNames[NUMLANG][NUMPARAM][20] = {{"Temperature", "StateofCharge", "ChargeRate"},{"Temperatur", " Ladezustand", "Ladestrom"}};
 	
 	int i = 0;
 	int count = 0;
@@ -47,7 +48,7 @@ void PrintParamCategoryWise(int category)
 		if (paramStatus[i]== category)
 		{
 			count ++;
-			printf("\n%d.%s", count,paramNames[i]);
+			printf("\n%d.%s", count,paramNames[PrintLanguage][i]);
 		}
 		i=i+1;
 	} 
