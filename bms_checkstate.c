@@ -54,10 +54,12 @@ int BatteryStateCheck(float temperature, float soc, float chargeRate, struct bat
 	batteryStatus = !(temp_status || soc_status || chargeRate_status);
 	
 	printBatteryStatus(batteryStatus);
-	PrintParamStatus(TEMP);
-	PrintParamStatus(SOC);
-	PrintParamStatus(CHRGRATE);
-    return batteryStatus;
+	
+	/* For Battery system mamagement*/
+	coolingFanControl (temperature);
+	BatteryChargeMonitoring(soc,chargeRate) ;
+	
+	return batteryStatus;
 }
 
 /****************************************************************************************
