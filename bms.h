@@ -33,6 +33,8 @@ enum PARAM_NAME {TEMP, SOC, CHRGRATE, NUMPARAM};
 extern enum LANGUAGES PrintLanguage;
 extern char paramNames[3][20];
 extern int paramStatus[3];
+extern char category_string[3][10]; 
+extern char Threshold[12];
 /*****************************************/
 
 /***************Structure definitions*******************/

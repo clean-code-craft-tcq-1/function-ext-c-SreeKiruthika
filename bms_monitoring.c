@@ -69,12 +69,8 @@ void checkIfChargingNeeded(float soc)
 *****************************************************************************************/
 void coolingFanControl (float temperature)
 {
-	#if(PrintLanguage == GERMAN)
-	char fanspeed_s[]= {"Ventilator Geschwindigkeit"};
-	#else
-	char fanspeed_s[]= {"Fan Speed"};
-	#endif
-	
+	char fanspeed_s[NUMLANG][50]= {"Fan Speed","Ventilator Geschwindigkeit"};
+		
 	float fanSpeed ;
 	float tempTolerance ;
 	tempTolerance = MAXTEMP * 0.05;
@@ -90,5 +86,5 @@ void coolingFanControl (float temperature)
 	{
 		fanSpeed = (temperature / MAXTEMP) * 100 ;
 	}
-	printf("%s : %f", fanspeed_s, fanspeed);
+	printf("%s : %f", fanspeed_s, fanSpeed);
 }	

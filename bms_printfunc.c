@@ -1,5 +1,13 @@
 #include "bms.h"
 
+#if(PrintLanguage == GERMAN)
+char category_string[3][10] = {"innerhalb","Unterhalb","Oberhalb"}; 
+char Threshold[12] = {"der Schwelle"};
+#else
+char category_string[3][10] = {"Within","Below","Above"}; 
+char Threshold[12] = {"Threshold"};
+#endif
+
 /****************************************************************************************
 *Func desc : This function check if the battery state is ok. In this function all the desired battery
 			 parameters are checked to validate the current battery status. 
@@ -42,13 +50,6 @@ void printBatteryStatus(int batteryStatus)
 ****************************************************************************************/
 void PrintParamCategoryWise(int category)
 {
-	#if(PrintLanguage == GERMAN)
-	char category_string[3][10] = {"innerhalb","Unterhalb","Oberhalb"}; 
-	char Threshold[] = {"der Schwelle"};
-	#else
-	char category_string[3][10] = {"Within","Below","Above"}; 
-	char Threshold[] = {"Threshold"};
-    #endif
 		
 	int i = 0;
 	int count = 0;
