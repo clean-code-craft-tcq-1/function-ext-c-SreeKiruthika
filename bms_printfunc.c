@@ -1,13 +1,5 @@
 #include "bms.h"
 
-#if(PrintLanguage == GERMAN)
-char category_string[3][10] = {"innerhalb","Unterhalb","Oberhalb"}; 
-char Threshold[12] = {"der Schwelle"};
-#else
-char category_string[3][10] = {"Within","Below","Above"}; 
-char Threshold[12] = {"Threshold"};
-#endif
-
 /****************************************************************************************
 *Func desc : This function check if the battery state is ok. In this function all the desired battery
 			 parameters are checked to validate the current battery status. 
@@ -21,22 +13,16 @@ char Threshold[12] = {"Threshold"};
 void printBatteryStatus(int batteryStatus)
 {
 	
-	#if(PrintLanguage == GERMAN)
-	char batteryStatusOK[] = {"Batteriestatus ist in Ordnung"};
-	char batteryStatusNOTOK[] = {"Batteriestatus ist nicht in Ordnung"};
-	#else
-	char batteryStatusOK[] = {"Battery status is OK"};
-	char batteryStatusNOTOK[] = {"Battery status is NOT OK"};
-	#endif
-	
-	
+	char batteryStatusOK[NUMLANG][50] = {"Battery status is OK","Batteriestatus ist in Ordnung"};
+	char batteryStatusNOTOK[NUMLANG][50] = {"Battery status is NOT OK","Batteriestatus ist nicht in Ordnung"};
+		
 	if(batteryStatus)
 	{
-		printf("\n\n%s",batteryStatusOK);
+		printf("\n\n%s",batteryStatusOK[PrintLanguage]);
 	}
 	else
 	{
-		printf("\n\n%s",batteryStatusNOTOK);
+		printf("\n\n%s",batteryStatusNOTOK[PrintLanguage]);
 		PrintParamCategoryWise(BELOW_MIN);
 		PrintParamCategoryWise(ABOVE_MAX);
 	}
@@ -50,10 +36,12 @@ void printBatteryStatus(int batteryStatus)
 ****************************************************************************************/
 void PrintParamCategoryWise(int category)
 {
-		
+    char category_string[NUMLANG][3][10] ={{"Within","Below","Above"},{"innerhalb","Unterhalb","Oberhalb"}}; 
+    char Threshold[NUMLANG][12] = {"Threshold","der Schwelle"};		
+	
 	int i = 0;
 	int count = 0;
-	printf("\n Parameters %s %s", category_string[category], Threshold);
+	printf("\n Parameters %s %s", category_string[PrintLanguage][category], Threshold[PrintLanguage]);
 	while(i<NUMPARAM)
 	{
 		if (paramStatus[i]== category)
